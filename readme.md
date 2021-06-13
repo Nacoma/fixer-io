@@ -1,4 +1,7 @@
+[![tests](https://github.com/Nacoma/fixer-io/actions/workflows/tests.yml/badge.svg)](https://github.com/Nacoma/fixer-io/actions/workflows/tests.yml)
+
 # Fixer.io API Wrapper
+
 A wrapper around [Fixer.io](https://fixer.io/)'s currency conversion rates API.
 
 ## Supported Endpoints
