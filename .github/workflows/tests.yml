@@ -6,25 +6,29 @@ on:
 
 jobs:
   tests:
-      runs-on: ubuntu-20.04
-      steps:
-          - name: Checkout code
-            uses: actions/checkout@v2
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-          - name: Setup PHP
-            uses: shivammathur/setup-php@v2
-            with:
-                php-version: 8.0
-                tools: composer:v2
-                coverage: none
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          tools: composer:v2
+          coverage: xdebug
 
-          - name: Install dependencies
-            uses: nick-invision/retry@v1
-            with:
-              timeout_minutes: 5
-              max_attempts: 5
-              command: composer install --prefer-dist --no-interaction --no-progress
+      - name: Install dependencies
+        uses: nick-invision/retry@v1
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          command: composer install --prefer-dist --no-interaction --no-progress
 
-          - name: Execute tests
-            continue-on-error: true
-            run: vendor/bin/phpunit --verbose
+      - name: Execute tests
+        continue-on-error: true
+        run: vendor/bin/phpunit --verbose --coverage-clover coverage.xml
+
+      - name: Codecov
+        continue-on-error: true
+        run: bash <(curl -s https://codecov.io/bash)
