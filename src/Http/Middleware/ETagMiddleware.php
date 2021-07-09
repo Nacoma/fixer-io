@@ -3,6 +3,7 @@
 namespace Nacoma\Fixer\Http\Middleware;
 
 use Closure;
+use DateInterval;
 use Nacoma\Fixer\ClientMiddlewareInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
@@ -60,7 +61,7 @@ class ETagMiddleware implements ClientMiddlewareInterface
 
         $item = self::deconstructItem($res);
 
-        $this->cache->set(self::key($request), $item);
+        $this->cache->set(self::key($request), $item, DateInterval::createFromDateString('24 hours'));
 
         return $this->makeResponse($item);
     }
