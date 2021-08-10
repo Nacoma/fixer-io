@@ -23,6 +23,23 @@ class ExchangeTest extends TestCase
 
     /**
      * @test
+     */
+    public function correctHost(): void
+    {
+        $this->mockHandler->reset();
+        $this->mockHandler->append(
+            new Response(200, [], $this->loadResponse('symbols_success.json'))
+        );
+
+        $this->exchange->symbols();
+
+        $request = $this->mockHandler->getLastRequest();
+
+        $this->assertEquals('localhost', $request->getUri()->getHost());
+    }
+
+    /**
+     * @test
      * @covers \Nacoma\Fixer\Exchange::symbols
      */
     public function symbols(): void

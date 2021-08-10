@@ -30,7 +30,8 @@ final class FixerClient implements FixerClientInterface
      */
     public function get(string $path, array $query = []): array
     {
-        $uri = $this->uriFactory->createUri($this->host)
+        $uri = $this->uriFactory->createUri('')
+            ->withHost($this->host)
             ->withScheme($this->scheme)
             ->withPath($path)
             ->withQuery(http_build_query($query));
