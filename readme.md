@@ -7,6 +7,9 @@ A wrapper around [Fixer.io](https://fixer.io/)'s currency conversion rates API w
 always a hassle. This project aims to help relieve some of that pressure by depending exclusively on PSR interfaces instead
 of hard dependencies - while maintaining a comfortable API.
 
+An additional goal of this project is to always deliver typed results. There's very little guessing about associative
+arrays involved when consuming this API.
+
 ## Supported Endpoints
 
 - Supported Symbols
