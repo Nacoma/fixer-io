@@ -3,7 +3,9 @@
 [![tests](https://github.com/Nacoma/fixer-io/actions/workflows/tests.yml/badge.svg)](https://github.com/Nacoma/fixer-io/actions/workflows/tests.yml)
 [![codecov](https://codecov.io/gh/Nacoma/fixer-io/branch/main/graph/badge.svg?token=BU6X7E5K9N)](https://codecov.io/gh/Nacoma/fixer-io)
 
-A wrapper around [Fixer.io](https://fixer.io/)'s currency conversion rates API.
+A wrapper around [Fixer.io](https://fixer.io/)'s currency conversion rates API with minimal dependencies. Upgrading applications is
+always a hassle. This project aims to help relieve some of that pressure by depending exclusively on PSR interfaces instead
+of hard dependencies - while maintaining a comfortable API.
 
 ## Supported Endpoints
 
